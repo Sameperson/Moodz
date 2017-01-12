@@ -6,5 +6,34 @@
 </head>
 <body>
 
+<div class="container upload">
+    <div class="row">
+        <div class="col s12">
+            <h2 th:text="${heading}">Log in</h2>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <form th:action="@{/login}" th:object="${user}" method="post" class="login">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+        <div>
+            <div class="row">
+                <div class="col s12 l8">
+                    <input type="text" th:field="*{username}" placeholder="username"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 l8">
+                    <input type="password" th:field="*{password}" placeholder="password"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 18">
+                    <button type="submit" class="button">Login</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>
